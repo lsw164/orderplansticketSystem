@@ -1,3 +1,7 @@
+package cn.edu.hcnu.bean;
+
+import cn.edu.hcnu.bean.Customer;
+
 import java.util.Set;
 
 public class Order {

@@ -1,4 +1,7 @@
+package cn.edu.hcnu.bean;
+
 import java.util.Date;
+import java.util.Set;
 
 public class Customer {
     private String id;   //无业务意义
@@ -7,7 +10,7 @@ public class Customer {
     private Date birthDate;//出生日期
     private String phone;//手机号
     private String carId;//身份证号
-    private Order order;
+    private Set<Order> order;
     public String getCustomerType() {
         return customerType;
     }
