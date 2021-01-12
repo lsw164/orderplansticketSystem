@@ -23,7 +23,7 @@ public class Flight {
                 ", departureAirPort='" + departureAirPort + '\'' +
                 ", destinationAirPort='" + destinationAirPort + '\'' +
                 ", departureDate='" + departureDate + '\'' +
-                '}';
+                '}'+"\n";
     }
 
     public Flight(String flightId, String planeType, String currentSeatsNum, String departureAirPort, String destinationAirPort, String departureDate) {

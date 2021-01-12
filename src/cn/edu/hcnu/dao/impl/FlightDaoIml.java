@@ -7,7 +7,7 @@ import java.util.Set;
 public class FlightDaoIml implements IFlightDao {
     @Override
     public void insertFlight(Flight flight) {
-
+        System.out.println(flight+"数据已成功传到FlightDaolml"+"\n");
     }
 
     @Override

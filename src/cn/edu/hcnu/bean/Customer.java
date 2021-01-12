@@ -10,7 +10,16 @@ public class Customer {
     private Date birthDate;//出生日期
     private String phone;//手机号
     private String cardId;//身份证号
-    private Set<Order> order;
+    private Set<Order> SetOrder;//乘客订单
+
+    public Set<Order> getSetOrder() {
+        return SetOrder;
+    }
+
+    public void setSetOrder(Set<Order> setOrder) {
+        SetOrder = setOrder;
+    }
+
     public String getCustomerType() {
         return customerType;
     }
