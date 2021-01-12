@@ -12,7 +12,7 @@ public class Order {
     private float hkzhx;//航空综合险
     private float jptgx;//机票退改险
     private float yhq;//优惠券
-    private float hszj;//航税总价
+    private float hszj;//含税总价
     private Set<Customer> customer[];  //乘客人数
 
     public Set<Customer>[] getCustomer() {

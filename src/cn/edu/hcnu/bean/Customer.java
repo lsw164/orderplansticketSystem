@@ -9,7 +9,7 @@ public class Customer {
     private String customerType;//旅客类型
     private Date birthDate;//出生日期
     private String phone;//手机号
-    private String carId;//身份证号
+    private String cardId;//身份证号
     private Set<Order> order;
     public String getCustomerType() {
         return customerType;
@@ -51,11 +51,11 @@ public class Customer {
         this.phone = phone;
     }
 
-    public String getCarId() {
-        return carId;
+    public String getCardId() {
+        return cardId;
     }
 
-    public void setCarId(String carId) {
-        this.carId = carId;
+    public void setCardId(String cardId) {
+        this.cardId = cardId;
     }
 }
