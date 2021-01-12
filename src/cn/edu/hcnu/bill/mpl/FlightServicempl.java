@@ -1,11 +1,10 @@
-package cn.edu.hcnu.bean.dao.impl;
+package cn.edu.hcnu.bill.mpl;
 
 import cn.edu.hcnu.bean.Flight;
-import cn.edu.hcnu.bean.dao.IFlightDao;
 
 import java.util.Set;
 
-public class FlightDaoIml implements IFlightDao {
+public class FlightServicempl implements IFlightService{
     @Override
     public void insertFlight(Flight flight) {
 
