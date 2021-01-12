@@ -7,7 +7,7 @@ public class Customer {
     private Date birthDate;//出生日期
     private String phone;//手机号
     private String carId;//身份证号
-
+    private Order order;
     public String getCustomerType() {
         return customerType;
     }

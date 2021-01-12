@@ -1,9 +1,20 @@
+import java.util.Set;
+
 public class Flight {
     private String id;
     private String planeType;//飞机型号
     private String departureAirPort;//出发机场
     private String destinationAirPort;//到达机场
     private String departureDate;//出发日期
+    private Set<Customer> customers;
+
+    public Set<Customer> getCustomers() {
+        return customers;
+    }
+
+    public void setCustomers(Set<Customer> customers) {
+        this.customers = customers;
+    }
 
     public String getId() {
         return id;

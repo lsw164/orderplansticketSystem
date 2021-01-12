@@ -1,3 +1,5 @@
+import java.util.Set;
+
 public class Order {
     private String id;
     private float jpjg;//乘机人类型（机票价格)
@@ -7,13 +9,13 @@ public class Order {
     private float jptgx;//机票退改险
     private float yhq;//优惠券
     private float hszj;//航税总价
-    private Customer customer[];  //乘客人数
+    private Set<Customer> customer[];  //乘客人数
 
-    public Customer[] getCustomer() {
+    public Set<Customer>[] getCustomer() {
         return customer;
     }
 
-    public void setCustomer(Customer[] customer) {
+    public void setCustomer(Set<Customer>[] customer) {
         this.customer = customer;
     }
 
