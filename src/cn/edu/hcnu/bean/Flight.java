@@ -5,29 +5,30 @@ import cn.edu.hcnu.bean.Customer;
 import java.util.Set;
 
 public class Flight {
+
     private String id;
     private String FlightId;
     private String planeType;//飞机型号
-    private String currentSeatsNum; //当前座位数
+    private int currentSeatsNum; //当前座位数
     private String departureAirPort;//出发机场
     private String destinationAirPort;//到达机场
     private String departureDate;//出发日期
 
-
     @Override
     public String toString() {
         return "Flight{" +
-                "FlightId='" + FlightId + '\'' +
-                ", planeType='" + planeType + '\'' +
-                ", currentSeatsNum='" + currentSeatsNum + '\'' +
-                ", departureAirPort='" + departureAirPort + '\'' +
-                ", destinationAirPort='" + destinationAirPort + '\'' +
-                ", departureDate='" + departureDate + '\'' +
-                '}'+"\n";
+                " 航班Id='" + FlightId + '\'' +
+                ", 飞机机型='" + planeType + '\'' +
+                ", 当前座位数='" + currentSeatsNum + '\'' +
+                ", 出发机场='" + departureAirPort + '\'' +
+                ", 到达机场='" + destinationAirPort + '\'' +
+                ", 出发时间='" + departureDate + '\'' +
+                '}';
     }
 
-    public Flight(String flightId, String planeType, String currentSeatsNum, String departureAirPort, String destinationAirPort, String departureDate) {
-       this.FlightId = flightId;
+    public Flight(String id, String flightId, String planeType, int currentSeatsNum, String departureAirPort, String destinationAirPort, String departureDate) {
+        this.id=id;
+        this.FlightId = flightId;
         this.planeType = planeType;
         this.currentSeatsNum = currentSeatsNum;
         this.departureAirPort = departureAirPort;
@@ -35,11 +36,11 @@ public class Flight {
         this.departureDate = departureDate;
     }
 
-    public String getCurrentSeatsNum() {
+    public int getCurrentSeatsNum() {
         return currentSeatsNum;
     }
 
-    public void setCurrentSeatsNum(String currentSeatsNum) {
+    public void setCurrentSeatsNum(int currentSeatsNum) {
         this.currentSeatsNum = currentSeatsNum;
     }
 
@@ -82,4 +83,13 @@ public class Flight {
     public void setDepartureDate(String departureData) {
         this.departureDate = departureData;
     }
+
+    public String getFlightId() {
+        return FlightId;
+    }
+
+    public void setFlightId(String flightId) {
+        FlightId = flightId;
+    }
+
 }

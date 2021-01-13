@@ -1,15 +1,18 @@
 package cn.edu.hcnu.ui;
 
-
 import cn.edu.hcnu.bean.Flight;
 import cn.edu.hcnu.bill.mpl.FlightServicempl;
 import cn.edu.hcnu.bill.mpl.IFlightService;
 
+import java.sql.SQLException;
 import java.util.Scanner;
+import java.util.Set;
 import java.util.UUID;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
-public class MainUI  {
-    public static void main(String[] args) {
+public class MainUI {
+    public static void main(String[] args)  {
         Scanner sc = new Scanner(System.in);
         while (true) {
             System.out.println("输入你想要操作的对应数字");
@@ -22,25 +25,61 @@ public class MainUI  {
 
             int choice = sc.nextInt();
             if (choice == 1) {
-                String id = UUID.randomUUID().toString();
+                String id = UUID.randomUUID().toString().replace("-", "");//删除replace("-",""),下面的iFlightService出现异常.
                 System.out.print("请输入航班编号:");
                 String flightId = sc.next();
                 System.out.print("请输入机型:");
                 String planeType = sc.next();
                 System.out.print("请输入座位数:");
-                String currentSeatsNum = sc.next();
+                int currentSeatsNum = sc.nextInt();
                 System.out.print("请输入起飞机场:");
                 String departureAirPort = sc.next();
                 System.out.print("请输入目的机场:");
                 String destinationAirPort = sc.next();
                 System.out.print("请输入起飞时间:");
                 String departureDate = sc.next();
-                Flight flight = new Flight(flightId, planeType, currentSeatsNum, departureAirPort, destinationAirPort, departureDate);
+                Flight flight = new Flight(id, flightId, planeType, currentSeatsNum, departureAirPort, destinationAirPort, departureDate);
                 IFlightService iFlightService = new FlightServicempl();
-                iFlightService.insertFlight(flight);
-                System.out.println(flight.toString()+"\n");
-            }
+                try {
+                    iFlightService.insertFlight(flight);
+                } catch (SQLException e) {
+                    String errorMessage = e.getMessage();
+                    System.out.println(errorMessage);
+                    if (errorMessage.startsWith("ORA-12899")) {
+                        //ORA-12899: value too large for column "OPTS"."FLIGHT"."ID" (actual: 32, maximum: 30)
+                        // 按指定模式在字符串查找
+                        String pattern = "(\\W)+(\"\\w+\")\\.(\"\\w+\")\\.(\"\\w+\")";
+                        // 创建 Pattern 对象
+                        Pattern r = Pattern.compile(pattern);
+                        // 现在创建 matcher 对象
+                        Matcher m = r.matcher(errorMessage);
+                        if (m.find()) {
+                            String tableName = m.group(3);
+                            String columnName = m.group(4);
+                            System.out.println(tableName + "表的" + columnName + "这一列的值过大，请仔细检查");
+                        } else {
+                            System.out.println("NO MATCH");
+                        }
+                    }
+                    System.out.println(flight.toString() + "\n");
+                }
 
+            }else if (choice == 2) {
+                IFlightService iFlightService = new FlightServicempl();
+                try {
+                    Set<Flight> allFlights=iFlightService.getAllFlights();
+                    /*
+                    Set的遍历需要用到迭代器
+                     */
+                    for (Flight flight : allFlights) {
+                        System.out.println(flight);
+                    }
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+
+
+        }
         }
     }
 }
