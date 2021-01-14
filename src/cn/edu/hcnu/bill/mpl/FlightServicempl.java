@@ -23,18 +23,18 @@ public class FlightServicempl implements IFlightService{
     }
 
     @Override
-    public Flight getFlightByDepartureTime(String departureTime) {
-        return null;
+    public Flight getFlightByDepartureTime(String departureTime) throws SQLException {
+        return iFlightDao.getFlightByDepartureTime(departureTime);
     }
 
     @Override
-    public Flight getFlightByDepartureAirPort(String departureAirPort) {
-        return null;
+    public Flight getFlightByDepartureAirPort(String departureAirPort) throws SQLException {
+        return iFlightDao.getFlightByDepartureAirPort(departureAirPort);
     }
 
     @Override
-    public Flight getFlightByDestinationAirPort(String destinationAirPort) {
-        return null;
+    public Flight getFlightByDestinationAirPort(String destinationAirPort) throws SQLException {
+        return iFlightDao.getFlightByDestinationAirPort(destinationAirPort);
     }
 
     @Override
