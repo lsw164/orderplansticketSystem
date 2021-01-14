@@ -12,7 +12,7 @@ public class Flight {
     private int currentSeatsNum; //当前座位数
     private String departureAirPort;//出发机场
     private String destinationAirPort;//到达机场
-    private String departureDate;//出发日期
+    private String departureTime;//出发日期
 
     @Override
     public String toString() {
@@ -22,7 +22,7 @@ public class Flight {
                 ", 当前座位数='" + currentSeatsNum + '\'' +
                 ", 出发机场='" + departureAirPort + '\'' +
                 ", 到达机场='" + destinationAirPort + '\'' +
-                ", 出发时间='" + departureDate + '\'' +
+                ", 出发时间='" + departureTime + '\'' +
                 '}';
     }
 
@@ -32,7 +32,7 @@ public class Flight {
         this.currentSeatsNum = currentSeatsNum;
         this.departureAirPort = departureAirPort;
         this.destinationAirPort = destinationAirPort;
-        this.departureDate = departureDate;
+        this.departureTime = departureDate;
     }
 
     public Flight(String id, String flightId, String planeType, int currentSeatsNum, String departureAirPort, String destinationAirPort, String departureDate) {
@@ -42,7 +42,7 @@ public class Flight {
         this.currentSeatsNum = currentSeatsNum;
         this.departureAirPort = departureAirPort;
         this.destinationAirPort = destinationAirPort;
-        this.departureDate = departureDate;
+        this.departureTime = departureDate;
     }
 
     public int getCurrentSeatsNum() {
@@ -85,12 +85,12 @@ public class Flight {
         this.destinationAirPort = destinationAirPort;
     }
 
-    public String getDepartureDate() {
-        return departureDate;
+    public String getDepartureTime() {
+        return departureTime;
     }
 
-    public void setDepartureDate(String departureData) {
-        this.departureDate = departureData;
+    public void setDepartureTime(String departureTime) {
+        this.departureTime = departureTime;
     }
 
     public String getFlightId() {

@@ -23,7 +23,7 @@ public class FlightDaoIml implements IFlightDao {
         pstmt.setInt   (4,flight.getCurrentSeatsNum());
         pstmt.setString(5,flight.getDepartureAirPort());
         pstmt.setString(6,flight.getDestinationAirPort());
-        pstmt.setString(7,flight.getDepartureDate());
+        pstmt.setString(7,flight.getDepartureTime());
 
         pstmt.executeUpdate();
     }
